@@ -1,3 +1,5 @@
+Travis-ci status: [![Build Status](https://secure.travis-ci.org/jackl0phty/opschef-cookbook-amazon_s3cmd.png?branch=master)](http://travis-ci.org/jackl0phty/opschef-cookbook-amazon_s3cmd)
+
 amazon_s3cmd Cookbook
 =====================
 
