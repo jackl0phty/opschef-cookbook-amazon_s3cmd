@@ -18,28 +18,42 @@ Attributes
 ----------
 
 # User using s3cmd.
+<pre><code>
 node.set['amazon_s3cmd']['user'] = 'root'
+</pre></code>
 
 # Group using s3cmd.
+<pre><code>
 node.set['amazon_s3cmd']['group'] = 'root'
+</pre></code>
 
 # Location of s3cmd config.
+<pre><code>
 node.set['amazon_s3cmd']['s3cfg'] = "#{node['amazon_s3cmd']['user']}/.s3cfg"
-
+</pre></code>
 # Amazon S3 Key. You MUST override this!
+<pre><code>
 node.set['amazon_s3cmd']['amazon_key'] = ''
-
+</pre></code>
 # Amazon secret. You MUST override this!
+<pre><code>
 node.set['amazon_s3cmd']['amazon_secret'] = ''
+</pre></code>
 
 # Encrypted data bag secret file.
+<pre><code>
 node.set['amazon_s3cmd']['data_bag_secret'] = '/etc/chef/encrypted_data_bag_secret'
+</pre></code>
 
 # Encrypted data bag name.
+<pre><code>
 node.set['amazonZ_s3cmd']['encrypted_data_bag_name'] = 's3cmd'
+</pre></code>
 
 # Encrypted data bag item.
+<pre><code>
 node.set['amazonZ_s3cmd']['encrypted_data_bag_item'] = 's3cfg'
+</pre></code>
 
 Usage
 -----
@@ -101,7 +115,7 @@ s3_secret_key: YOUR_SECRET_KEY_HERE
 </pre></code>
 
 # Copy your secret key to your node.
-</pre></code>
+<pre><code>
 skywalker@alderaan:~ $ scp -P 6565 /home/you/data_bag_secret_key skywalker@alderaan: 
 skywalker@alderaan's password: 
 data_bag_secret_key                                                                                                                                                            100%  695     0.7KB/s   00:00    
@@ -114,13 +128,14 @@ skywalker@alderaan:~ $ sudo mv /home/skywalker/data_bag_secret_key /etc/chef/
 
 Just include `amazon_s3cmd` in your node's `run_list`:
 
-```json
+<pre><code>
 {
   "name":"my_node",
   "run_list": [
     "recipe[amazon_s3cmd]"
   ]
 }
+</pre></code>
 
 Future TODO list.
 -----------------
