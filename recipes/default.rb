@@ -43,12 +43,12 @@ when "gentoo"
 end
 
 # Make sure data bag secret exists.
-if File.exists?("#{node['amazon_s3cmd']['data_bag_secret']}") then
+if File.exists?(node['amazon_s3cmd']['data_bag_secret']) then
 
   # Set up encrypted data bag.
-  data_bag_secret = "#{node['amazon_s3cmd']['data_bag_secret']}"
+  data_bag_secret = node['amazon_s3cmd']['data_bag_secret']
   s3_secret = Chef::EncryptedDataBagItem.load_secret(data_bag_secret)
-  s3_creds = Chef::EncryptedDataBagItem.load("#{node['amazonZ_s3cmd']['encrypted_data_bag_name']}", "#{node['amazonZ_s3cmd']['encrypted_data_bag_item']}", s3_secret)
+  s3_creds = Chef::EncryptedDataBagItem.load(node['amazonZ_s3cmd']['encrypted_data_bag_name'], node['amazonZ_s3cmd']['encrypted_data_bag_item'], s3_secret)
 
   # Save Amazon key & secret to variables.
   s3_key = s3_creds["s3_access_key"] 
@@ -67,10 +67,10 @@ if File.exists?("#{node['amazon_s3cmd']['data_bag_secret']}") then
 end
 
 # Deploy config file for s3cmd.
-template "#{node['amazon_s3cmd']['s3cfg']}" do
+template node['amazon_s3cmd']['s3cfg'] do
   source "s3cfg.erb"
-  owner "#{node['amazon_s3cmd']['user']}"
-  group "#{node['amazon_s3cmd']['group']}"
+  owner node['amazon_s3cmd']['user']
+  group node['amazon_s3cmd']['group']
   mode "0644"
   variables(
     :s3_access_key => s3_key,
