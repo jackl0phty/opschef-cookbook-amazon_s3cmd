@@ -145,12 +145,12 @@ Future TODO list.
 
 Contributing
 ------------
-1. Fork the repository on Github.
+1. Fork the repository on Github by clicking [here](https://github.com/jackl0phty/opschef-cookbook-amazon_s3cmd/fork).
 2. Create a topic branch (like `yourname-add-awesomeness`).
 3. Write you change.
 4. Write tests for your change (if applicable).
 5. Run the tests, ensuring they all pass.
-6. Submit a Pull Request using Github.
+6. Submit a Pull Request using Github [here](https://github.com/jackl0phty/opschef-cookbook-amazon_s3cmd).
 
 License and Authors
 -------------------
