@@ -33,11 +33,15 @@ node.set['amazon_s3cmd']['group'] = 'root'
 <pre><code>
 node.set['amazon_s3cmd']['s3cfg'] = "#{node['amazon_s3cmd']['user']}/.s3cfg"
 </pre></code>
-# Amazon S3 Key. You MUST override this!
+# Amazon S3 Key. No need to override.
+# Will be populated from encrypted data bag you created. 
+# See USAGE section of this README for details.
 <pre><code>
 node.set['amazon_s3cmd']['amazon_key'] = ''
 </pre></code>
-# Amazon secret. You MUST override this!
+# Amazon secret. No need to override.
+# Will be populated from encrypted data bag you created. 
+# See USAGE section of this README for details.
 <pre><code>
 node.set['amazon_s3cmd']['amazon_secret'] = ''
 </pre></code>

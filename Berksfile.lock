@@ -3,6 +3,9 @@
     "magic_shell": {
       "locked_version": "0.3.2"
     },
+    "yum": {
+      "locked_version": "2.3.2"
+    },
     "amazon_s3cmd": {
       "path": "."
     }
