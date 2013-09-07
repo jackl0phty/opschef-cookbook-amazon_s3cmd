@@ -5,6 +5,9 @@
 # Copyright 2012, Gerald L. Hevener Jr., M.S.
 #
 
+# Install user.
+node.set['amazon_s3cmd']['install_user'] = 'root'
+
 # User using s3cmd.
 node.set['amazon_s3cmd']['user'] = 'root'
 

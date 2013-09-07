@@ -61,7 +61,7 @@ end
 
 # Build s3cmd.
 execute "build_s3cmd" do
-  user node['amazon_s3cmd']['user']
+  user node['amazon_s3cmd']['install_user']
   cwd "#{node['amazon_s3cmd']['install_prefix_root']}/share/s3cmd"
   command "python setup.py install"
   action :run
