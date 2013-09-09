@@ -30,7 +30,7 @@ if File.exists?(node['amazon_s3cmd']['data_bag_secret']) then
 end
 
 # Deploy config file for s3cmd.
-template node['amazon_s3cmd']['s3cfg'] do
+template "/home/#{node['amazon_s3cmd']['user']}/.s3cfg" do
   source "s3cfg.erb"
   owner node['amazon_s3cmd']['user']
   group node['amazon_s3cmd']['group']

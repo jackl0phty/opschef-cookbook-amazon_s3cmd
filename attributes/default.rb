@@ -15,7 +15,7 @@ node.set['amazon_s3cmd']['user'] = 'root'
 node.set['amazon_s3cmd']['group'] = 'root'
 
 # Location of s3cmd config.
-node.set['amazon_s3cmd']['s3cfg'] = "#{node['amazon_s3cmd']['user']}/.s3cfg"
+#node.set['amazon_s3cmd']['s3cfg'] = "#{node['amazon_s3cmd']['user']}/.s3cfg"
 
 # Amazon S3 Key.
 node.set['amazon_s3cmd']['amazon_key'] = ''
@@ -41,5 +41,4 @@ node.set['amazon_s3cmd']['users'] = [:root]
 #default[:s3cmd][:aws_secret_access_key] = ""
 
 node.set['amazon_s3cmd']['version'] = "v1.1.0-beta3"
-node.set['amazon_s3cmd']['user'] = "root"
 node.set['amazon_s3cmd']['install_prefix_root'] = "/usr/local"
