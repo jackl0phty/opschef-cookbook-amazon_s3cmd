@@ -1,5 +1,6 @@
 ---
 driver_plugin: vagrant
+use_vagrant_berkshelf_plugin: true
 driver_config:
   require_chef_omnibus: true
 
@@ -38,16 +39,18 @@ platforms:
 #  driver_config:
 #    box: archlinux
 #    box_url: http://iweb.dl.sourceforge.net/project/vagrantarchlinx/2011.08.19/archlinux_2011.08.19.box
-- name: opensuse-12.1
-  driver_config:
-    box: opensuse-12.1-x64
-    box_url: https://s3.amazonaws.com/circlejtp/OpenSuseVagrant/OpenSuse12_1x64_July14.box
-#- name: freebsd-9.1
+#- name: opensuse-12.1
 #  driver_config:
-#    box: freebsd-9.1-amd64
-#    box_url: https://s3.amazonaws.com/vagrant_boxen/freebsd_amd64_ufs.box 
+#    box: opensuse-12.1-x64
+#    box_url: https://s3.amazonaws.com/circlejtp/OpenSuseVagrant/OpenSuse12_1x64_July14.box
+- name: freebsd-9.1
+  driver_config:
+    box: freebsd-9.1-amd64
+    box_url: https://s3.amazonaws.com/vagrant_boxen/freebsd_amd64_ufs.box 
 
 suites:
 - name: default
-  run_list: ["recipe[amazon_s3cmd::source]"]
+  run_list:
+  - recipe[amazon_s3cmd::source]
+  - recipe[amazon_s3cmd::default]
   attributes: {}

@@ -14,6 +14,9 @@ node.set['amazon_s3cmd']['user'] = 'root'
 # Group using s3cmd.
 node.set['amazon_s3cmd']['group'] = 'root'
 
+# Install python-magic library.
+node.set['amazon_s3cmd']['install_python_magic'] = 'yes'
+
 # Location of s3cmd config.
 #node.set['amazon_s3cmd']['s3cfg'] = "#{node['amazon_s3cmd']['user']}/.s3cfg"
 

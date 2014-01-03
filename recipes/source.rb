@@ -4,6 +4,12 @@
 #
 # Copyright 2013, Gerald L. Hevener Jr., M.S.
 #
+# Install python-magic library.
+if node.set['amazon_s3cmd']['install_python_magic'] = 'yes'
+
+  include_recipe 'amazon_s3cmd::python_magic'
+
+end
 
 # Install required packages.
 case node['platform_family']
@@ -26,6 +32,12 @@ case node['platform_family']
     end
 #  end
   when 'debian'
+  # Address issue with libcurl3-gnutls on Debian.
+  execute "debian-libcurl-workaround" do
+    command "apt-get update --fix-missing"
+    action :run
+    not_if "s3cmd --version |grep version"
+  end  
   %w{ git-core python-setuptools }.each do |pkg|
     package pkg do
       action :install
@@ -52,7 +64,7 @@ directory "#{node['amazon_s3cmd']['install_prefix_root']}/share/s3cmd" do
   recursive true
 end
 
-# Clone s3cmd fro github.
+# Clone s3cmd from github.
 git "#{node['amazon_s3cmd']['install_prefix_root']}/share/s3cmd" do
   repository "git://github.com/s3tools/s3cmd.git"
   reference node['amazon_s3cmd']['version']

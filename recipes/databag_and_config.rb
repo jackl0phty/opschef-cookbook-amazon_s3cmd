@@ -30,14 +30,57 @@ if File.exists?(node['amazon_s3cmd']['data_bag_secret']) then
 end
 
 # Deploy config file for s3cmd.
-template "/home/#{node['amazon_s3cmd']['user']}/.s3cfg" do
-  source "s3cfg.erb"
-  owner node['amazon_s3cmd']['user']
-  group node['amazon_s3cmd']['group']
-  mode "0644"
-  variables(
-    :s3_access_key => s3_key,
-    :s3_secret => s3_secret)
+if node['amazon_s3cmd']['user'] == 'root'
+
+  template "/#{node['amazon_s3cmd']['user']}/.s3cfg" do
+    source "s3cfg.erb"
+    owner node['amazon_s3cmd']['user']
+    group node['amazon_s3cmd']['group']
+    mode "0644"
+    variables(
+      :s3_access_key => s3_key,
+      :s3_secret => s3_secret)
+    not_if "ohai platform |grep -i freebsd"
+    only_if { node['amazon_s3cmd']['user'] == 'root' }
+  end
+
+   template "/#{node['amazon_s3cmd']['user']}/.s3cfg" do
+    source "s3cfg.erb"
+    owner node['amazon_s3cmd']['user']
+    group "wheel"
+    mode "0644"
+    variables(
+      :s3_access_key => s3_key,
+      :s3_secret => s3_secret)
+    only_if "ohai platform |grep -i freebsd"
+  end
+
+end
+
+if node['amazon_s3cmd']['user'] != 'root'
+
+   template "/home/#{node['amazon_s3cmd']['user']}/.s3cfg" do
+    source "s3cfg.erb"
+    owner node['amazon_s3cmd']['user']
+    group node['amazon_s3cmd']['group']
+    mode "0644"
+    variables(
+      :s3_access_key => s3_key,
+      :s3_secret => s3_secret)
+    not_if "ohai platform |grep -i freebsd"
+  end
+
+  template "/home/#{node['amazon_s3cmd']['user']}/.s3cfg" do
+    source "s3cfg.erb"
+    owner node['amazon_s3cmd']['user']
+    group "wheel"
+    mode "0644"
+    variables(
+      :s3_access_key => s3_key,
+      :s3_secret => s3_secret)
+    only_if "ohai platform |grep -i freebsd"
+  end
+
 end
 
 # Add files to /etc/profile.d.

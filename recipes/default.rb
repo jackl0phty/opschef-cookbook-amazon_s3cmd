@@ -5,6 +5,13 @@
 # Copyright 2013, Gerald L. Hevener Jr., M.S.
 #
 
+# Install python-magic library.
+if node.set['amazon_s3cmd']['install_python_magic'] = 'yes'
+
+  include_recipe 'amazon_s3cmd::python_magic'
+
+end
+
 # Install Amazon S3 client.
 case node['platform_family']
  

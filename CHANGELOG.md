@@ -1,3 +1,11 @@
+Version 0.1.47
+--------------
+Add installation of python-magic library.
+Fix other platform-specific issues.
+Update Gemfile & Gemfile.lock.
+Add recipe amazon_s3cmd::python_magic.
+Tmp. workaround for home directory until I have time to test https://github.com/jackl0phty/opschef-cookbook-amazon_s3cmd/pull/1
+
 Version 0.1.42
 --------------
 Fix foodcritic compliance.
