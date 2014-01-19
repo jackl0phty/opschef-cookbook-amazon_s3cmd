@@ -37,6 +37,7 @@ case node['platform_family']
     command "apt-get update --fix-missing"
     action :run
     not_if "s3cmd --version |grep version"
+    not_if "ohai platform |grep ubuntu"
   end  
   %w{ git-core python-setuptools }.each do |pkg|
     package pkg do
