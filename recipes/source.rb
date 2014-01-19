@@ -68,7 +68,7 @@ end
 # Clone s3cmd from github.
 git "#{node['amazon_s3cmd']['install_prefix_root']}/share/s3cmd" do
   repository "git://github.com/s3tools/s3cmd.git"
-  reference node['amazon_s3cmd']['version']
+#  reference node['amazon_s3cmd']['version']
   action :sync
 end
 
