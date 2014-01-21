@@ -33,7 +33,7 @@ default['amazon_s3cmd']['data_bag_secret'] = '/etc/chef/encrypted_data_bag_secre
 default['amazon_s3cmd']['encrypted_data_bag_name'] = 's3cmd'
 
 # Encrypted data bag item.
-defualt['amazon_s3cmd']['encrypted_data_bag_item'] = 's3cfg'
+default['amazon_s3cmd']['encrypted_data_bag_item'] = 's3cfg'
 
 ##########Attributes for amazon_s3cmd::source recipe#################
 # list of users that will have the s3cmd configuration 
