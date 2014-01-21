@@ -4,7 +4,7 @@ maintainer_email 'jackl0phty@gmail.com'
 license          'Apache 2.0'
 description      'Installs/Configures amazon_s3cmd'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version "0.1.53"
+version "0.1.54"
 
 %w{ magic_shell yum }.each do |cb|
   depends cb
