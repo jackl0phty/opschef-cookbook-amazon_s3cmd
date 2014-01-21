@@ -21,44 +21,44 @@ Attributes
 
 # User using s3cmd.
 <pre><code>
-node.set['amazon_s3cmd']['user'] = 'root'
+default['amazon_s3cmd']['user'] = 'root'
 </pre></code>
 
 # Group using s3cmd.
 <pre><code>
-node.set['amazon_s3cmd']['group'] = 'root'
+default['amazon_s3cmd']['group'] = 'root'
 </pre></code>
 
 # Location of s3cmd config.
 <pre><code>
-node.set['amazon_s3cmd']['s3cfg'] = "#{node['amazon_s3cmd']['user']}/.s3cfg"
+default['amazon_s3cmd']['s3cfg'] = "#{node['amazon_s3cmd']['user']}/.s3cfg"
 </pre></code>
 # Amazon S3 Key. No need to override.
 # Will be populated from encrypted data bag you created. 
 # See USAGE section of this README for details.
 <pre><code>
-node.set['amazon_s3cmd']['amazon_key'] = ''
+default['amazon_s3cmd']['amazon_key'] = ''
 </pre></code>
 # Amazon secret. No need to override.
 # Will be populated from encrypted data bag you created. 
 # See USAGE section of this README for details.
 <pre><code>
-node.set['amazon_s3cmd']['amazon_secret'] = ''
+default['amazon_s3cmd']['amazon_secret'] = ''
 </pre></code>
 
 # Encrypted data bag secret file.
 <pre><code>
-node.set['amazon_s3cmd']['data_bag_secret'] = '/etc/chef/encrypted_data_bag_secret'
+default['amazon_s3cmd']['data_bag_secret'] = '/etc/chef/encrypted_data_bag_secret'
 </pre></code>
 
 # Encrypted data bag name.
 <pre><code>
-node.set['amazonZ_s3cmd']['encrypted_data_bag_name'] = 's3cmd'
+default['amazon_s3cmd']['encrypted_data_bag_name'] = 's3cmd'
 </pre></code>
 
 # Encrypted data bag item.
 <pre><code>
-node.set['amazonZ_s3cmd']['encrypted_data_bag_item'] = 's3cfg'
+default['amazon_s3cmd']['encrypted_data_bag_item'] = 's3cfg'
 </pre></code>
 
 Usage
