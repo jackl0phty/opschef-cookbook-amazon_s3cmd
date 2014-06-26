@@ -1,3 +1,16 @@
+Version 0.1.59
+--------------
+* Update CHANGELOG
+
+Version 0.1.58
+--------------
+* Update README.
+* Update metadata.*
+
+Version 0.1.56
+--------------
+* Update metadata.json
+
 Version 0.1.53
 --------------
 * Comment out reference for git cmd.
