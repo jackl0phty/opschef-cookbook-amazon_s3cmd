@@ -1,3 +1,7 @@
+Version 0.1.60
+--------------
+* Add cookbook 'amazon_s3cmd' to Berksfile.
+
 Version 0.1.59
 --------------
 * Update CHANGELOG
