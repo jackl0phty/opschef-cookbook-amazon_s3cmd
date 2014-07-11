@@ -1,3 +1,6 @@
+version 0.1.64
+* Use foodcritic version 3.0.3.
+
 version 0.1.63
 --------------
 * Update on Travis-ci integration.
