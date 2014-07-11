@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: amazon_s3cmd
-# Recipe:: databag_and_config 
+# Recipe:: databag_and_config
 #
 # Copyright 2013, Gerald L. Hevener Jr., M.S.
 #
@@ -17,10 +17,6 @@ if File.exists?(node['amazon_s3cmd']['data_bag_secret']) then
   s3_key = s3_creds["s3_access_key"]
   s3_secret = s3_creds["s3_secret_key"]
 
-  # Save creds to node.
-  node.set['amazon_key'] = s3_key
-  node.set['amazon_secret'] = s3_secret
-
   else
 
     # Inform user to create data bag & item.
@@ -30,7 +26,7 @@ if File.exists?(node['amazon_s3cmd']['data_bag_secret']) then
 end
 
 # Deploy config file for s3cmd.
-if node['amazon_s3cmd']['user'] == 'root'
+if node.default['amazon_s3cmd']['user'] == 'root'
 
   template "/#{node['amazon_s3cmd']['user']}/.s3cfg" do
     source "s3cfg.erb"
@@ -57,7 +53,7 @@ if node['amazon_s3cmd']['user'] == 'root'
 
 end
 
-if node['amazon_s3cmd']['user'] != 'root'
+if node.default['amazon_s3cmd']['user'] != 'root'
 
    template "/home/#{node['amazon_s3cmd']['user']}/.s3cfg" do
     source "s3cfg.erb"
@@ -83,9 +79,9 @@ if node['amazon_s3cmd']['user'] != 'root'
 
 end
 
-# Add files to /etc/profile.d.
-%w(amazon_key amazon_secret).each do |var|
-  magic_shell_environment var.upcase do
-    value node[var]
-  end
+# Deploy creds as ENV VARS to /etc/profile.d.
+if node.default['amazon_s3cmd']['deploy_creds_as_env_vars'] = 'yes'
+
+  include_recipe 'amazon_s3cmd::env_var'
+
 end

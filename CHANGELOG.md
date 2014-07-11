@@ -1,3 +1,9 @@
+version 0.1.62
+--------------
+* Add recipe amazon_s3cmd::env_var. This makes deploy of creds
+  as environment variables optional to the user.
+* Remove explicit node.set so creds aren't exposed.
+
 Version 0.1.61
 --------------
 * Update Rakefile.

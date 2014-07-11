@@ -5,7 +5,7 @@
 # Copyright 2013, Gerald L. Hevener Jr., M.S.
 #
 # Install python-magic library.
-if node.set['amazon_s3cmd']['install_python_magic'] = 'yes'
+if node.default['amazon_s3cmd']['install_python_magic'] = 'yes'
 
   include_recipe 'amazon_s3cmd::python_magic'
 
